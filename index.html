@@ -7,9 +7,39 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0"
     />
-    <title>Document</title>
+    <title>Bike Trail Finder</title>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    hello world
+    <section class="main-header">
+      <div class="header-container">
+        <h1>Find a Bike Trail Near You</h1>
+        <form id="search-form">
+          <label for="search-location" class="input-label"
+            >Search Trails:
+          </label>
+          <input
+            type="text"
+            name="search-city-state"
+            id="city-state"
+            placeholder="City, State"
+            required
+          />
+          <input
+            type="submit"
+            value="Search Trails"
+            class="submit-button"
+          />
+        </form>
+      </div>
+    </section>
+    <section class="error-message" id="error-message"></section>
+    <section class="weather-error-message"></section>
+    <section id="hiking-trail-results" class="hidden">
+      <div id="weather-results"></div>
+      <h2 class="hidden-h2" id="list-header"></h2>
+      <ul id="results-list"></ul>
+    </section>
+    <script src="index.js"></script>
   </body>
 </html>
