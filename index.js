@@ -105,8 +105,12 @@ const renderTrailData = (trailData) => {
 
     let imageContainer = document.createElement("div");
     let trailImage = document.createElement("img");
-    trailImage.src = `${trail.thumbnail}`;
-    trailImage.alt = `picture of ${trail.name} trail`;
+    if (trail.thumbnail == null) {
+      trailImage.alt = `Unable to load picture of ${trail.name} trail.`;
+    } else {
+      trailImage.src = `${trail.thumbnail}`;
+      trailImage.alt = `picture of ${trail.name} trail`;
+    }
     imageContainer.appendChild(trailImage);
     trailList.appendChild(card);
 
@@ -127,12 +131,6 @@ const renderTrailData = (trailData) => {
     moreInfo.href = `${trail.url}`;
     moreInfo.class = "info-button";
     moreInfo.appendChild(document.createTextNode(`More Info`));
-    // let externalLinkContainer = document.createElement("div");
-    // let externalLink = document.createElement("button");
-    // externalLink.class = "trail-info-btn";
-    // externalLink.onclick = `window.location.href = ${trail.url}`;
-    // externalLink.appendChild(document.createTextNode("more info"));
-    // externalLinkContainer.appendChild(externalLink);
 
     card.append(
       cardHeader,
