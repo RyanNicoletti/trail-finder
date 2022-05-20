@@ -173,7 +173,7 @@ const renderTrailData = (trailData) => {
 
 const load_map = (e) => {
   e.preventDefault();
-  fetch("index.html" /*, options */)
+  fetch("map.txt" /*, options */)
     .then((response) => response.text())
     .then((html) => {
       document.getElementById("content").innerHTML = html;
