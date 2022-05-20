@@ -1,0 +1,24 @@
+{
+  "name": "trail-finder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RyanNicoletti/trail-finder.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RyanNicoletti/trail-finder/issues"
+  },
+  "homepage": "https://github.com/RyanNicoletti/trail-finder#readme",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "nodemon": "^2.0.16"
+  }
+}

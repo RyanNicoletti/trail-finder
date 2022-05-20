@@ -49,16 +49,7 @@ const displayResults = (latLongCoords) => {
   let latitude = latLongCoords.results[0].geometry.location.lat;
   let longitude = latLongCoords.results[0].geometry.location.lng;
   fetchTrails(latitude, longitude);
-  //fetchWeather(latitude, longitude);
 };
-
-// const formatTrailQuery = (params) => {
-//   const trailQueryItems = Object.keys(params).map(
-//     (key) =>
-//       `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`
-//   );
-//   return trailQueryItems.join("&");
-// };
 
 const fetchTrails = (latitude, longitude) => {
   const options = {
@@ -75,7 +66,10 @@ const fetchTrails = (latitude, longitude) => {
     options
   )
     .then((response) => response.json())
-    .then((trailData) => renderTrailData(trailData))
+    .then((trailData) => {
+      getMap(trailData);
+      renderTrailData(trailData);
+    })
     .catch((err) => console.error(err));
 
   //   .catch((err) => {
@@ -83,6 +77,31 @@ const fetchTrails = (latitude, longitude) => {
   //       "error-message"
   //     ).textContent += `Error: ${err.message}`;
   //   });
+};
+
+const getMap = (trailData) => {
+  let mapArr = [];
+  for (let i = 0; i < trailData.data.length; i++) {
+    let mapObj = {
+      name: trailData.data[i].name,
+      lat: trailData.data[i].lat,
+      lon: trailData.data[i].lon,
+    };
+    mapArr.push(mapObj);
+  }
+  fetchMap(mapArr);
+};
+
+const fetchMap = (mapArr) => {
+  fetch("http://localhost:3000/getmaps", {
+    method: "POST",
+    mode: "cors",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ map_array: mapArr }),
+  });
 };
 
 const renderTrailData = (trailData) => {
