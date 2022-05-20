@@ -161,14 +161,14 @@ const renderTrailData = (trailData) => {
     trailList.append(card);
   });
 
-  // fetch("map.txt")
-  //   .then((resp) => resp.text())
-  //   .then((data) => {
-  //     let splitHtml = data.split("\n");
-  //     console.log("here", splitHtml);
-  //     mapHTML = splitHtml[37];
-  //     document.getElementById("map").innerHTML += mapHTML;
-  //   });
+  fetch("map.txt")
+    .then((resp) => resp.text())
+    .then((data) => {
+      let splitHtml = data.split("\n");
+      console.log("here", splitHtml);
+      mapHTML = splitHtml[37];
+      document.getElementById("map").innerHTML += mapHTML;
+    });
 };
 
 // const load_map = (e) => {
@@ -183,16 +183,6 @@ const renderTrailData = (trailData) => {
 //       console.warn(error);
 //     });
 // };
-async function fetchHtmlAsText(url) {
-  const response = await fetch(url);
-  return await response.text();
-}
-async function loadHome() {
-  console.log("OWAHIEFOHWEF");
-  const contentDiv = document.getElementById("content");
-  contentDiv.innerHTML = await fetchHtmlAsText("map.html");
-}
-loadHome();
 
 document
   .querySelector("#search-form")
