@@ -164,7 +164,8 @@ const renderTrailData = (trailData) => {
   fetch("map.txt")
     .then((resp) => resp.text())
     .then((data) => {
-      console.log("here", data);
+      let splitHtml = data.split("\n");
+      console.log(splitHtml[39]);
     });
 };
 
