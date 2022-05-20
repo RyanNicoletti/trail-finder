@@ -171,17 +171,26 @@ const renderTrailData = (trailData) => {
   //   });
 };
 
-const load_map = (e) => {
-  e.preventDefault();
-  fetch("map.txt" /*, options */)
-    .then((response) => response.text())
-    .then((html) => {
-      document.getElementById("content").innerHTML = html;
-    })
-    .catch((error) => {
-      console.warn(error);
-    });
-};
+// const load_map = (e) => {
+//   e.preventDefault();
+//   fetch("map.txt" /*, options */)
+//     .then((response) => response.text())
+//     .then((html) => {
+//       console.log(html);
+//       document.getElementById("content").innerHTML = html;
+//     })
+//     .catch((error) => {
+//       console.warn(error);
+//     });
+// };
+async function fetchHtmlAsText(url) {
+  const response = await fetch(url);
+  return await response.text();
+}
+async function loadHome() {
+  const contentDiv = document.getElementById("content");
+  contentDiv.innerHTML = await fetchHtmlAsText("map.html");
+}
 
 document
   .querySelector("#search-form")
