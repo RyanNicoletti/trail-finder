@@ -159,6 +159,7 @@ const renderTrailData = (trailData) => {
       moreInfo
     );
     trailList.append(card);
+    loadHome();
   });
 
   // fetch("map.txt")
