@@ -159,7 +159,6 @@ const renderTrailData = (trailData) => {
       moreInfo
     );
     trailList.append(card);
-    loadHome();
   });
 
   // fetch("map.txt")
@@ -193,6 +192,7 @@ async function loadHome() {
   const contentDiv = document.getElementById("content");
   contentDiv.innerHTML = await fetchHtmlAsText("map.html");
 }
+loadHome();
 
 document
   .querySelector("#search-form")
