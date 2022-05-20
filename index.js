@@ -165,7 +165,7 @@ const renderTrailData = (trailData) => {
     .then((resp) => resp.text())
     .then((data) => {
       let splitHtml = data.split("\n");
-      console.log(splitHtml[39]);
+      console.log(splitHtml[40]);
     });
 };
 
