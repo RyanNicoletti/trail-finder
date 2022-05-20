@@ -189,6 +189,7 @@ async function fetchHtmlAsText(url) {
   return await response.text();
 }
 async function loadHome() {
+  console.log("OWAHIEFOHWEF");
   const contentDiv = document.getElementById("content");
   contentDiv.innerHTML = await fetchHtmlAsText("map.html");
 }
