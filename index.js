@@ -160,6 +160,12 @@ const renderTrailData = (trailData) => {
     );
     trailList.append(card);
   });
+
+  fetch("map.txt")
+    .then((resp) => resp.text())
+    .then((data) => {
+      console.log(data);
+    });
 };
 
 document
