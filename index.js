@@ -161,13 +161,25 @@ const renderTrailData = (trailData) => {
     trailList.append(card);
   });
 
-  fetch("map.txt")
-    .then((resp) => resp.text())
-    .then((data) => {
-      let splitHtml = data.split("\n");
-      console.log("here", splitHtml);
-      mapHTML = splitHtml[38];
-      document.getElementById("map").innerHTML += mapHTML;
+  // fetch("map.txt")
+  //   .then((resp) => resp.text())
+  //   .then((data) => {
+  //     let splitHtml = data.split("\n");
+  //     console.log("here", splitHtml);
+  //     mapHTML = splitHtml[37];
+  //     document.getElementById("map").innerHTML += mapHTML;
+  //   });
+};
+
+const load_map = (e) => {
+  e.preventDefault();
+  fetch("index.html" /*, options */)
+    .then((response) => response.text())
+    .then((html) => {
+      document.getElementById("content").innerHTML = html;
+    })
+    .catch((error) => {
+      console.warn(error);
     });
 };
 
