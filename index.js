@@ -164,7 +164,7 @@ const renderTrailData = (trailData) => {
   fetch("map.txt")
     .then((resp) => resp.text())
     .then((data) => {
-      console.log(data);
+      console.log("here", data);
     });
 };
 
