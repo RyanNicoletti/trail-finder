@@ -39,7 +39,7 @@ def get_map(parsed_data):
         bounds.append([loc["lat"], loc["lon"]])
 
     map.fit_bounds(bounds, padding=(50, 50))
-    map.save("map.html")
+    map.save("index.html")
 
 
 def write_html():

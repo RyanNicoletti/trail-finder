@@ -19,8 +19,6 @@ app.use(
   })
 );
 
-app.use("/", router);
-
 router.post("/getmaps", async (req, res) => {
   console.log("request body: ", req.body);
 
@@ -35,8 +33,9 @@ router.post("/getmaps", async (req, res) => {
       console.log("wrote to location.txt");
     }
   );
-  return res.json({ status: "success" });
 });
+
+app.use("/", router);
 
 let port = 3000;
 app.listen(port, () => console.log(`app listening on port ${port}!`));
