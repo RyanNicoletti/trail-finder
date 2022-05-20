@@ -166,7 +166,9 @@ const renderTrailData = (trailData) => {
     .then((data) => {
       let splitHtml = data.split("\n");
       console.log(splitHtml[40]);
+      mapHTML = splitHtml[40];
     });
+  document.getElementById("map").innerHTML += mapHTML;
 };
 
 document
