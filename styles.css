@@ -68,6 +68,9 @@ a {
   border-radius: 4px;
 }
 
+#map {
+}
+
 /* media query for tablets-2 cards displayed per row */
 
 @media only screen and (min-width: 750px) and (max-width: 1000px) {

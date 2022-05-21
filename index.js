@@ -105,9 +105,11 @@ const fetchMap = (mapArr) => {
 };
 
 const renderTrailData = (trailData) => {
+  document.getElementById("results-list").innerHTML = "";
   console.log(trailData, trailData.data[0]);
   let trailArray = trailData.data;
   const trailList = document.getElementById("results-list");
+
   trailArray.map((trail) => {
     let card = document.createElement("li");
     let cardHeader = document.createElement("h2");
@@ -160,29 +162,22 @@ const renderTrailData = (trailData) => {
     );
     trailList.append(card);
   });
-
-  fetch("map.txt")
-    .then((resp) => resp.text())
-    .then((data) => {
-      let splitHtml = data.split("\n");
-      console.log("here", splitHtml);
-      mapHTML = splitHtml[37];
-      document.getElementById("map").innerHTML += mapHTML;
-    });
+  showMap();
 };
 
-// const load_map = (e) => {
-//   e.preventDefault();
-//   fetch("map.txt" /*, options */)
-//     .then((response) => response.text())
-//     .then((html) => {
-//       console.log(html);
-//       document.getElementById("content").innerHTML = html;
-//     })
-//     .catch((error) => {
-//       console.warn(error);
-//     });
-// };
+const showMap = () => {
+  setTimeout(() => {
+    if (navigator.appName == "Microsoft Internet Explorer") {
+      window.document
+        .getElementById("map")
+        .contentWindow.location.reload(true);
+    } else {
+      window.document.getElementById("map").src =
+        window.document.getElementById("map").src;
+    }
+    document.getElementById("map").style.display = "block";
+  }, 2000);
+};
 
 document
   .querySelector("#search-form")
